@@ -16,16 +16,21 @@ if (file_exists($file)) {
 <html lang="<?= $lang_code ?>">
 <head>
     <meta charset="UTF-8">
+    
+    <!-- Evitar traducción automática de Google -->
+   <meta name="google" content="notranslate">
+   <meta http-equiv="Content-Language" content="<?= $lang_code ?>">
+
     <title><?= $lang["title"] ?? "Adoptify" ?></title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1><?= $lang["welcome"] ?? "Bienvenido a Adoptify" ?></h1>
+    <h1><?= $lang["welcome"] ?></h1>
 
     <!-- 🌐 Selector de idioma -->
     <form method="get" id="languageForm" class="selector-idioma">
-      <label for="lang"><?= $lang["select_lang"] ?? "Seleccionar idioma:" ?></label>
+      <label for="lang"><?= $lang["select_language"] ?></label>
       <select name="lang" id="lang" onchange="document.getElementById('languageForm').submit();">
         <option value="es" <?= ($lang_code == 'es') ? 'selected' : '' ?>>🇪🇸 Español</option>
         <option value="en" <?= ($lang_code == 'en') ? 'selected' : '' ?>>🇬🇧 English</option>
@@ -39,7 +44,7 @@ if (file_exists($file)) {
         <li><a href="index.php?lang=<?= $lang_code ?>"><?= $lang["home"] ?? "Inicio" ?></a></li>
         <li><a href="adopciones.php?lang=<?= $lang_code ?>"><?= $lang["pets"] ?? "Mascotas" ?></a></li>
         <li><a href="formulario_adopcion.php?lang=<?= $lang_code ?>"><?= $lang["form"] ?? "Formulario" ?></a></li>
-        <li><a href="historias.php?lang=<?= $lang_code ?>"><?= $lang["stories"] ?? "Historias" ?></a></li>
+       <li><a href="historias.php?lang=<?= $lang_code ?>"><?= $lang["stories"] ?? "Historias" ?></a></li>
         <li><a href="contacto.php?lang=<?= $lang_code ?>"><?= $lang["contact"] ?? "Contacto" ?></a></li>
       </ul>
     </nav>
@@ -48,8 +53,7 @@ if (file_exists($file)) {
   
 
   <footer>
-    <p>© 2025 Adoptify 🐾</p>
+    <p><?= $lang ["footer"] ?></p>
   </footer>
 </body>
 </html>
-
